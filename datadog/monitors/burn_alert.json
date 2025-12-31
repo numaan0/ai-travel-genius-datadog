@@ -1,0 +1,19 @@
+{
+	"id": 17351226,
+	"name": "Burn Alert",
+	"type": "slo alert",
+	"query": "burn_rate(\"a1777605a3a950878fd637b877a2733e\").over(\"7d\").long_window(\"1h\").short_window(\"5m\") > 2",
+	"message": "@case-travel-genius-cases \n🚨 SLO Burn Alert: LLM Availability – travel-genius-agents\n\nWhat happened:\n- LLM availability error budget is being consumed too fast\n- Risk of breaching the 99.9% availability SLO\n\nImpact:\n- Users may experience failed or degraded responses\n\nContext:\n- ml_app: travel-genius-agents\n- Model: gemini-2.0-flash\n\nNext steps:\n1. Open recent failing traces\n2. Check LLM spans with \"error:1\"\n3. Inspect tool spans for cascading failures\nDashboard:\n https://us5.datadoghq.com/dashboard/szq-4fb-7qw/ai-travel-genius-dashboard-final",
+	"tags": [],
+	"options": {
+		"thresholds": {
+			"critical": 2
+		},
+		"notify_no_data": false,
+		"notify_audit": false,
+		"new_host_delay": 300,
+		"include_tags": true
+	},
+	"priority": 2,
+	"draft_status": "published"
+}

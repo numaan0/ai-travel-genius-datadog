@@ -1,0 +1,19 @@
+{
+	"id": 17352006,
+	"name": "High Token Usage",
+	"type": "query alert",
+	"query": "sum(last_5m):avg:ml_obs.span.llm.total.tokens{ml_app:travel-genius-agents} > 2500",
+	"message": "{{#is_alert}}\n💰 **High Token Usage Alert**\n\n**Immediate Action for AI Engineer:**\n1.  **Identify High-Cost Requests**: [View Traces by Token Usage](https://app.datadoghq.com/apm/traces?query=service%3Atravel-genius-agents&sort=desc&sort_by=ml_obs.span.llm.total.tokens)\n2.  **Check for**: Overly complex user prompts, agent loops, or unnecessary tool calls.\n3.  **Review Recent Changes**: Any new agent instructions or tools deployed?\n\n**Current Avg Token Usage:** {{value}} tokens/request\n**Service:** {{service.name}}\n{{/is_alert}}\n\n{{#is_warning}}\n⚠️ **Elevated Token Usage**\n\nToken consumption is above expected levels. Review prompt efficiency.\n\n**Current Avg Token Usage:** {{value}} tokens/request\n{{/is_warning}} @case-travel-genius-cases",
+	"tags": [],
+	"options": {
+		"thresholds": {
+			"critical": 2500
+		},
+		"notify_audit": false,
+		"on_missing_data": "resolve",
+		"include_tags": false,
+		"new_host_delay": 300
+	},
+	"priority": 3,
+	"draft_status": "published"
+}

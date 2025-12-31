@@ -1,0 +1,21 @@
+{
+	"id": 17351887,
+	"name": "High LLM Error Rate",
+	"type": "query alert",
+	"query": "sum(last_5m):(sum:ml_obs.span.error{service:travel-genius-agents}.as_count() / sum:ml_obs.span{service:travel-genius-agents}.as_count()) * 100 > 10",
+	"message": "{{#is_alert}}\n🚨 **High LLM Error Rate Detected**\n\n**Immediate Action for AI Engineer:**\n1.  Check error traces: [View Error Traces](https://app.datadoghq.com/apm/traces?query=service%3Atravel-genius-agents%20%40status%3Aerror)\n2.  Review recent prompts that caused failures\n3.  Verify Google Vertex AI/Gemini API status\n\n**Current Error Rate:** {{value}}%\n**Service:** {{service.name}}\n{{/is_alert}}\n\n{{#is_warning}}\n⚠️ **Elevated LLM Error Rate**\n\nMonitor showing increased error rate. Review recent deployments or prompt patterns.\n\n**Current Error Rate:** {{value}}%\n{{/is_warning}} @case-travel-genius-cases",
+	"tags": [],
+	"options": {
+		"thresholds": {
+			"critical": 10,
+			"warning": 5
+		},
+		"notify_audit": false,
+		"on_missing_data": "default",
+		"include_tags": false,
+		"notify_no_data": false,
+		"new_host_delay": 300
+	},
+	"priority": 1,
+	"draft_status": "published"
+}

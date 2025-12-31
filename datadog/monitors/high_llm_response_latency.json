@@ -1,0 +1,19 @@
+{
+	"id": 17351954,
+	"name": "High LLM Response Latency",
+	"type": "query alert",
+	"query": "percentile(last_5m):p95:ml_obs.trace.duration{service:travel-genius-agents} > 10000",
+	"message": "a\n\n\n\nAdd Query\nAdd Formula\nEvaluation Details\nEvaluate the\n\npercentile (p95)\nOf the query over the\n\n\nAdd Custom Schedule\nNEW\n\n3\nSet alert conditions\nTrigger when the evaluated value is\n\nabove\nthe threshold\n \nAlert threshold:\n> @case-travel-genius-cases",
+	"tags": [],
+	"options": {
+		"thresholds": {
+			"critical": 10000
+		},
+		"notify_audit": false,
+		"on_missing_data": "resolve",
+		"include_tags": false,
+		"new_host_delay": 300
+	},
+	"priority": 2,
+	"draft_status": "published"
+}
