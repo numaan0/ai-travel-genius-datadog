@@ -1,0 +1,6 @@
+[build]
+  base = "ai-travel-genius"
+  command = "npm run build"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
