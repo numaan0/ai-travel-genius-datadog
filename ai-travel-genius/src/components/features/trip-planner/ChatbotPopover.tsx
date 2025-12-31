@@ -124,7 +124,7 @@ export default function ChatbotPopover() {
 
     // Create a placeholder bot message for streaming
     const botMessageId = Date.now().toString();
-    let botMessage: Message = {
+    const botMessage: Message = {
       id: botMessageId,
       type: 'bot',
       content: '',
