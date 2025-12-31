@@ -125,7 +125,7 @@ The platform consists of a modern Next.js frontend and a FastAPI backend powered
 
 ### 📊 Observability Features
 
-- **Full Trace Visibility** in Datadog APM
+- **Full Trace Visibility** in Datadog 
 - **LLM Observability** for agent performance
 - **Custom Monitors** for latency, token usage, error rates
 - **Traffic Simulation** for testing monitors
@@ -469,6 +469,9 @@ Ensure these are set in Cloud Run:
 - `GET /health` - Health check
 - `POST /run` - Execute agent chain
 - `POST /apps/{app}/users/{user}/sessions/{session}` - Create session
+- POST /run
+  payload: Sample
+  {"appName":"agent","userId":"u_1767199996135_4gbt93u7l","sessionId":"s_1767199996135_hc7d5dsy8","newMessage":{"role":"user","parts":[{"text":"Create a complete 1-day travel itinerary for Tokyo, Japan with budget ₹90000 for 2 adventure no specific preferences."}]}}
 
 ### Frontend API Routes
 
@@ -542,7 +545,7 @@ MIT License - see [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-Built for the **Datadog Hackathon 2025** with full trace-based observability.
+Built for the **AI Partner Catatyst Hackathon 2025** with full trace-based observability.
 
 **Organization**: `ai-travel-genius`
 
