@@ -21,7 +21,7 @@ interface ItineraryGeneratorProps {
 export default function ItineraryGenerator({ userInput, onBack }: ItineraryGeneratorProps) {
   const [isGenerating, setIsGenerating] = useState(false)
   const [currentStep, setCurrentStep] = useState('')
-  const [itinerary, setItinerary] = useState(null)
+  const [itinerary, setItinerary] = useState<any | null>(null)
   const [progress, setProgress] = useState(0)
   const isMountedRef = useRef(true)
   const progressRef = useRef(0)
